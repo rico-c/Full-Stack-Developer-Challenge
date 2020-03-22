@@ -41,7 +41,7 @@ npm run start
 ```
 
 ## About Me
-Name: CAO YU
-Email: ricardo_cao@foxmail.com 
-Github: github.com/rico-c
-Mobile: +8613691214473
+- Name: CAO YU
+- Email: ricardo_cao@foxmail.com 
+- Github: github.com/rico-c
+- Mobile: +8613691214473
