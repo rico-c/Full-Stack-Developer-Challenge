@@ -1,15 +1,15 @@
 # Full Stack Developer Challenge
-This is my Full Stack Developer Challenge Project, including frontend part and backend part;
+This is my Full Stack Developer Challenge Project, including frontend part and backend part.
 
 ## Main feature
 ### Login Page
-You can choose both Admin and Employee as your identity, Admin do not needs password and Employee too.But if you want to login as any employee identity, you need to input the exsiting employee username, which can be created by Admin,so your first step should be login into the Admin page,and created some employees.
+You can choose both Admin and Employee as your identity, Admin do not needs password and Employee either.But if you want to login as any employee identity, you need to input the exsiting employee username, which can be created by Admin,so your first step should be logging into the Admin page,and created some employees.
 
 ### Admin Page
-At this page,you can add employee as you want, or delete any employee,can you can view all the review among the employees.You can also assign any employee to finish the review of another (or himself/herself) employee who you selected;
+At this page,you can add new employee as you want, or delete any employees, you can view all the reviews written by employees.You can also assign any employee to finish the review of another (or himself/herself) employee who you selected.
 
 ### Employee Page
-At this page,you can check your review task list that Admin assigned to you, choose any employee you want to review,and input the content, then confirm submit, and you can update it anytimes as you want.
+At this page,you can check your review task list that Admin assigned to you, choose any employee you want to review, input the content, then confirm and submit, and you can update it as any times as you want repeatly.
 
 ## Skill Stack
 **Front-end**
@@ -21,7 +21,7 @@ At this page,you can check your review task list that Admin assigned to you, cho
 - NodeJS (ExpressJs as Framework)
 
 **Database**
-- Local JSON file (for the sake of convenient of displaying, I choose local file to save data)
+- Local JSON file (for the sake of convenient of displaying, I choose local file to save data instead of Mysql or so on)
 
 ## How to run this project
 ### enviroment
