@@ -24,6 +24,9 @@ At this page,you can check your review task list that Admin assigned to you, cho
 - Local JSON file (for the sake of convenient of displaying, I choose local file to save data)
 
 ## How to run this project
+### enviroment
+`NodeJS`
+
 ### frontend
 ```
 cd frontend
