@@ -50,11 +50,13 @@ async function addReviewer(username, reviewer) {
 async function submitReview(username, reviewer, review) {
     try {
         const resJSON = await getJsonStore('../localStore/store.json');
+        // find the index of review target
         const index = resJSON.employees.findIndex(item => {
             return item.username === username;
         });
         const currentReviewList = resJSON.employees[index].reviews;
         if (currentReviewList.length) {
+            // if no review, add one,if has one,then change it
             const reviewIndex = currentReviewList.findIndex(item => {
                 return item.reviewer === reviewer;
             });

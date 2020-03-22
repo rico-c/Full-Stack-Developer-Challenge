@@ -22,7 +22,6 @@ const {
 async function getEmployee() {
     try {
         const resJSON = await getJsonStore('../localStore/store.json');
-        console.log(resJSON);
         return new SuccessModel(resJSON.employees);
     }
     catch (e) {
@@ -40,11 +39,14 @@ async function addEmployee(username) {
         if (!username) {
             return new ErrorModel(lackOfUserName)
         }
+        // read local JSON file
         const resJSON = await getJsonStore('../localStore/store.json');
+        // find if this username is existing
         if (resJSON.employees.map(i => i.username).includes(username)) {
             return new ErrorModel(userNameExistInfo)
         }
         else {
+            // add new employess
             resJSON.employees = resJSON.employees.concat([{
                 username,
                 reviews: [],
@@ -74,9 +76,11 @@ async function deleteEmployee(username) {
             return new ErrorModel(userNameDonotExistInfo)
         }
         else {
+            // firt step: get the item's index
             const index = resJSON.employees.findIndex(item => {
                 item.username === username;
             });
+            // remove the item
             resJSON.employees.splice(index, 1);
             // other emplyee's reviewer including deleted username needs to be clear
             resJSON.employees.forEach((e, i) => {
