@@ -49,7 +49,33 @@ async function addReviewer(username, reviewer) {
 
 async function submitReview(username, reviewer, review) {
     try {
-        return new SuccessModel('test');
+        const resJSON = await getJsonStore('../localStore/store.json');
+        const index = resJSON.employees.findIndex(item => {
+            return item.username === username;
+        });
+        const currentReviewList = resJSON.employees[index].reviews;
+        if (currentReviewList.length) {
+            const reviewIndex = currentReviewList.findIndex(item => {
+                return item.reviewer === reviewer;
+            });
+            if (reviewIndex > -1) {
+                resJSON.employees[index].reviews[reviewIndex].content = review;
+            }
+            else {
+                resJSON.employees[index].reviews = resJSON.employees[index].reviews.concat({
+                    content: review,
+                    reviewer
+                });
+            }
+        }
+        else {
+            resJSON.employees[index].reviews.push({
+                content: review,
+                reviewer
+            })
+        }
+        writeJsonStore('../localStore/store.json', resJSON);
+        return new SuccessModel(username);
     }
     catch (e) {
         console.log(e);

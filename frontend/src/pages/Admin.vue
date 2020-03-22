@@ -1,6 +1,7 @@
 <template>
     <div class="admin">
-        <el-button @click="dialogFormVisible = true" type="primary">Add Employee</el-button>
+        <el-button @click="back">Back</el-button>
+        <el-button @click="dialogFormVisible = true" type="primary" class="add-employee">Add Employee</el-button>
         <el-dialog title="Add Employee" :visible.sync="dialogFormVisible">
             <el-form>
                 <el-form-item label="Employee Name">
@@ -33,19 +34,33 @@
 
         <el-table :data="tableData" stripe empty-text="No employee, please add">
             <el-table-column type="index" width="50"></el-table-column>
-            <el-table-column prop="username" label="Employee Name"></el-table-column>
+            <el-table-column prop="username" label="Employee Name" width="150"></el-table-column>
             <el-table-column prop="reviews" label="Reviews">
                 <template slot-scope="scope">
-                    <div v-for="review in scope.row.reviews" :key="review.reviewer">
-                        <span>content: {{review.content}}</span>
-                        <span>reviewer: {{review.reviewer}}</span>
+                    <div class="review-list">
+                        <div
+                            v-for="review in scope.row.reviews"
+                            :key="review.reviewer"
+                            class="review-item"
+                        >
+                            <span>
+                                <span class="review-title">reviewer:</span>
+                                {{review.reviewer}}
+                            </span>
+                            <br />
+                            <span>
+                                <span class="review-title">content:</span>
+                                {{review.content}}
+                            </span>
+                            <br />
+                        </div>
                     </div>
                 </template>
             </el-table-column>
-            <el-table-column prop="reviewer" label="Reviewer">
+            <el-table-column prop="reviewer" label="Reviewer" width="120">
                 <template slot-scope="scope">{{scope.row.reviewer.join(',')}}</template>
             </el-table-column>
-            <el-table-column>
+            <el-table-column width="150">
                 <template slot-scope="scope">
                     <el-button
                         class="handle-btn"
@@ -179,6 +194,9 @@ export default {
             } catch (e) {
                 console.error(e);
             }
+        },
+        back() {
+            this.$router.push('/home');
         }
     }
 };
@@ -192,6 +210,20 @@ export default {
     .handle-btn {
         width: 120px;
         margin: 5px;
+    }
+    .add-employee {
+        float: right;
+    }
+    .review-list {
+        .review-item {
+            border-bottom: 1px solid #ebeef5;
+            .review-title {
+                color: #949393;
+            }
+        }
+        .review-item:last-child {
+            border-bottom: none;
+        }
     }
 }
 </style>

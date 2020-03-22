@@ -1,39 +1,41 @@
 # Full Stack Developer Challenge
-This is an interview challengs. Please feel free to fork. Pull Requests will be ignored.
+This is my Full Stack Developer Challenge Project, including frontend part and backend part;
 
-## Requirements
-Design a web application that allows employees to submit feedback toward each other's performance review.
+## Main feature
+### Login Page
+You can choose both Admin and Employee as your identity, Admin do not needs password and Employee too.But if you want to login as any employee identity, you need to input the exsiting employee username, which can be created by Admin,so your first step should be login into the Admin page,and created some employees.
 
-*Partial solutions are acceptable.*  It is not necessary to submit a complete solution that implements every requirement.
+### Admin Page
+At this page,you can add employee as you want, or delete any employee,can you can view all the review among the employees.You can also assign any employee to finish the review of another (or himself/herself) employee who you selected;
 
-### Admin view
-* Add/remove/update/view employees
-* Add/update/view performance reviews
-* Assign employees to participate in another employee's performance review
+### Employee Page
+At this page,you can check your review task list that Admin assigned to you, choose any employee you want to review,and input the content, then confirm submit, and you can update it anytimes as you want.
 
-### Employee view
-* List of performance reviews requiring feedback
-* Submit feedback
+## Skill Stack
+**Front-end**
+- VueJS
+- Vuex
+- Scss
 
-## Challenge Scope
-* High level description of design and technologies used
-* Server side API (using a programming language and/or framework of your choice)
-  * Implementation of at least 3 API calls
-  * Most full stack web developers at PayPay currently use Java, Ruby on Rails, or Node.js on the server(with MySQL for the database), but feel free to use other tech if you prefer
-* Web app
-  * Implementation of 2-5 web pages using a modern web framework (e.g. React or Angular) that talks to server side
-    * This should integrate with your API, but it's fine to use static responses for some of it 
-* Document all assumptions made
-* Complete solutions aren't required, but what you do submit needs to run.
+**Back-end**
+- NodeJS (ExpressJs as Framework)
 
-## How to complete this challenge
-* Fork this repo in github
-* Complete the design and code as defined to the best of your abilities
-* Place notes in your code to help with clarity where appropriate. Make it readable enough to present to the PayPay interview team
-* Complete your work in your own github repo and send the results to us and/or present them during your interview
+## How to run this project
+### frontend
+```
+cd frontend
+npm install
+npm run start
+```
+### backend
+```
+cd backend
+npm install
+npm run start
+```
 
-## What are we looking for? What does this prove?
-* Assumptions you make given limited requirements
-* Technology and design choices
-* Identify areas of your strengths
-* This is not a pass or fail test, this will serve as a common ground that we can deep dive together into specific issues
+## About Me
+Name: CAO YU
+Email: ricardo_cao@foxmail.com 
+Github: github.com/rico-c
+Mobile: +8613691214473
