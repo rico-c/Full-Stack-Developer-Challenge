@@ -8,7 +8,7 @@
                         <el-radio v-model="type" label="Employee">Employee</el-radio>
                     </el-form-item>
                 </el-form>
-                <el-form ref="form" label-width="90px">
+                <el-form ref="form" label-width="90px" v-if="type==='Employee'">
                     <el-form-item label="Your Name">
                         <el-input v-model="username" placeholder="input your name"></el-input>
                     </el-form-item>
@@ -28,8 +28,12 @@ export default {
     data() {
         return {
             type: null,
-            username: null
+            username: null,
+            emplyees: []
         };
+    },
+    created() {
+        this.getEmployees();
     },
     methods: {
         jump() {
@@ -40,15 +44,24 @@ export default {
                 });
                 return;
             }
-            if (!this.username) {
+            if (!this.username && this.type === 'Employee') {
                 this.$notify({
                     type: 'warning',
                     title: 'please input your Name'
                 });
                 return;
             }
+             if (!this.emplyees.includes(this.username) && this.type === 'Employee') {
+                this.$notify({
+                    type: 'warning',
+                    title: 'this username has not registered yet,only accept registered user by admin',
+                    message: 'please use admin add this emplyee username'
+                });
+                return;
+            }
             this.$store.commit('updateUser', {
-                username: this.username
+                username: this.username,
+                usertype: this.type
             });
             switch (this.type) {
                 case 'Admin':
@@ -63,6 +76,15 @@ export default {
                     break;
                 default:
                     break;
+            }
+        },
+        async getEmployees() {
+            try {
+                const res = await this.$axios.get(this.$api.getEmployee);
+                this.emplyees = res.data.map(i => i.username);
+            }
+            catch(e) {
+                console.error(e);
             }
         }
     }

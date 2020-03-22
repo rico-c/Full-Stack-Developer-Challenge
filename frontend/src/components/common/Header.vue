@@ -8,7 +8,7 @@
                 Performance Review
             </span>
             <div class="header-user">
-                {{username}}
+                {{usertype}}  {{username}}
             </div>
         </div>
     </div>
@@ -19,6 +19,9 @@ export default {
     computed: {
         username() {
             return this.$store.state.username;
+        },
+        usertype() {
+            return this.$store.state.usertype;
         }
     }
 };
@@ -47,6 +50,8 @@ export default {
         }
         .header-user {
             float: right;
+            line-height: 80px;
+            color: #555;
         }
     }
     
