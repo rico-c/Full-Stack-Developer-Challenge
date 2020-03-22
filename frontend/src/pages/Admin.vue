@@ -97,6 +97,7 @@ export default {
         this.refreshData();
     },
     methods: {
+        // upload new employee
         async uploadNewEmployee() {
             try {
                 if (!this.newName) {
@@ -128,6 +129,7 @@ export default {
                 console.error(e);
             }
         },
+        // after uplaod or first laoded needs to refreshData
         async refreshData() {
             try {
                 const res = await this.$axios.get(this.$api.getEmployee);
@@ -143,6 +145,7 @@ export default {
                 console.error(e);
             }
         },
+        // delete employee and refresh
         async deleteEmployee(username) {
             try {
                 const res = await this.$axios.get(this.$api.deleteEmployee, {
@@ -166,10 +169,7 @@ export default {
                 console.error(e);
             }
         },
-        openAddReviewerDialog(username) {
-            this.addReviewerVisible = true;
-            this.addReviewerTarget = username;
-        },
+        // add reviewer and refresh
         async addReviewer() {
             try {
                 this.addReviewerVisible = false;
@@ -194,6 +194,11 @@ export default {
             } catch (e) {
                 console.error(e);
             }
+        },
+        // open the dialog
+        openAddReviewerDialog(username) {
+            this.addReviewerVisible = true;
+            this.addReviewerTarget = username;
         },
         back() {
             this.$router.push('/home');

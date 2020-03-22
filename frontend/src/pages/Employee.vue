@@ -82,6 +82,7 @@ export default {
             this.reviewContent = row.myReview;
             this.showReview = true;
         },
+        // update the review
         async updateReview() {
             try {
                 const res = await this.$axios.get(this.$api.submitReview, {

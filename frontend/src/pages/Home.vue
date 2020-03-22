@@ -37,6 +37,7 @@ export default {
     },
     methods: {
         jump() {
+            // form check
             if (!this.type) {
                 this.$notify({
                     type: 'warning',
@@ -59,10 +60,12 @@ export default {
                 });
                 return;
             }
+            // update vuex store
             this.$store.commit('updateUser', {
                 username: this.username,
                 usertype: this.type
             });
+            // router jump
             switch (this.type) {
                 case 'Admin':
                     this.$router.push({
@@ -78,6 +81,7 @@ export default {
                     break;
             }
         },
+        // get employee list to judge if any username is registered
         async getEmployees() {
             try {
                 const res = await this.$axios.get(this.$api.getEmployee);
